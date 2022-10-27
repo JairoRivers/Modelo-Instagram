@@ -1,0 +1,333 @@
+<html>
+<head>
+    <meta http-equiv= "Content - Type" content= "texte/html; charset= utf - 8">
+    <meta charset= "utf -8">
+    <title> Instafeed </title>
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            height: 100vh;
+            width: 100vw;
+            background-color:rgb(71, 72, 73);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .content{
+            height: 520px;
+            width: 935px;
+            overflow: hidden;
+            position: relative;
+            transform: translate(40%);
+            border: solid;
+        }
+
+        .navegation{
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translate(-50%);
+            display: flex;
+        }
+        
+
+        .bar{
+            width: 70px;
+            height: 17px;
+            border: 10px solid #fff;
+            margin: 6px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: .6s;
+        }
+
+        .carousel{
+            display: flex;
+            width: 500%;
+            height: 100%;
+        }
+
+        .slide{
+            width: 20%;
+            transition: .6s;
+        }
+
+        .slide img{
+            width: 100%;
+            height: 100%;
+        }
+
+        #slide1:checked ~.s1, #slide4:checked ~.s1, #slide7:checked ~.s1{
+            margin-left: 0;
+        }
+        #slide2:checked ~.s1, #slide5:checked ~.s1, #slide8:checked ~.s1{
+            margin-left: -20%;
+        }
+        #slide3:checked ~.s1, #slide6:checked ~.s1, #slide9:checked ~.s1{
+            margin-left: -40%;
+        }
+
+        #logo{
+            background-color: rgb(210, 36, 30);
+            border: solid;
+        }
+
+        #user{
+            background-color:rgb(223, 104, 58);
+            font-size: 20px;
+            margin-right: 835px;
+            border: solid;
+            transform: translate(40%);
+            margin-right: 764px;
+        }
+
+        #dif{
+            background-color:rgb(88, 89, 90);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 10px;            
+            border: solid;
+            transform: translate(39%);
+            margin-right: 755px;
+        }
+
+
+        input{
+            display: none;
+        }
+
+        #curtir, #curtir2, #curtir3, #coment, #comenta, #comen, #envio{
+            background-color:rgb(223, 104, 58);
+            display: inline-block;
+            font-size: medium;
+            border: double;
+            cursor: pointer;
+        }
+
+        #counter-label, #cp, #counter-label2, #counter-label3 {
+            display: inline-block;
+        }
+
+    </style>
+
+
+    <script>
+        var counterVal = 300;
+        var counterVal2 = 556;
+        var counterVal3 = 999;
+        var controle = 1;
+        var controle2 = 1;
+        var controle3 = 1;
+
+        function incrementClick() {
+            if (controle == 1){
+                var val = counterVal++;
+                document.getElementById("counter-label").innerHTML = val; 
+                document.getElementById("curtir").value = "Curtir";  
+                controle++; 
+            }else{
+                var valn = counterVal--;
+                document.getElementById("counter-label").innerHTML = valn; 
+                document.getElementById("curtir").value = "Descurtir";
+                controle = 1;  
+            }
+        }   
+        
+        function incrementClick2(){
+            if (controle2 == 1){
+                var val2 = counterVal2++;
+                document.getElementById("counter-label2").innerHTML = val2; 
+                document.getElementById("curtir2").value = "Curtir";  
+                controle2++; 
+            }else{
+                var valn2 = counterVal2--;
+                document.getElementById("counter-label2").innerHTML = valn2; 
+                document.getElementById("curtir2").value = "Descurtir";
+                controle2 = 1;  
+            }
+        }
+    
+        function incrementClick3(){
+            if (controle3 == 1){
+                var val3 = counterVal3++;
+                document.getElementById("counter-label3").innerHTML = val3; 
+                document.getElementById("curtir3").value = "Curtir";  
+                controle3++; 
+            }else{
+                var valn3 = counterVal3--;
+                document.getElementById("counter-label3").innerHTML = valn3; 
+                document.getElementById("curtir3").value = "Descurtir";
+                controle3 = 1;  
+            }
+        }
+        
+        function addComentario(){
+            var ing = document.getElementById("coment").value;
+            var comentarios = document.getElementById("comentarios").innerHTML;
+            comentarios = comentarios + "<p>" + "Você: " + ing + "</p>";
+
+            document.getElementById("comentarios").innerHTML = comentarios;
+        }
+
+        function addComentario2(){
+            var inga = document.getElementById("comenta").value;
+            var comentarioss = document.getElementById("comentarioss").innerHTML;
+            comentarioss = comentarioss + "<p>" + "Você: " + inga + "</p>";
+
+            document.getElementById("comentarioss").innerHTML = comentarioss;
+        }
+
+        function addComentario3(){
+            var ingaa = document.getElementById("comen").value;
+            var comentarioz = document.getElementById("comentarioz").innerHTML;
+            comentarioz = comentarioz + "<p>" + "Você: " + ingaa + "</p>";
+
+            document.getElementById("comentarioz").innerHTML = comentarioz;
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1 id="logo">Instafeed</h1>
+    <div>
+        <p id="user">FoxP</p>   
+        <div class="content">
+            <div class="carousel">
+                <input type="radio" name="radio" id="slide1" checked>
+                <input type="radio" name="radio" id="slide2">
+                <input type="radio" name="radio" id="slide3">
+    
+                <div class="slide s1">
+                    <img src="https://s1.1zoom.me/big0/679/423837-Kycb.jpg" alt="Fox">
+                </div>
+                <div class="slide">
+                    <img src="https://i.pinimg.com/736x/c2/0e/14/c20e14417d3841bc0d779ffbd9704471.jpg" alt="Sword">
+                </div>
+                <div class="slide">
+                    <img src="https://image.myanimelist.net/ui/fkLITaJTefafxFKPGRzngld4-RwQSDLpfSkVGQkIfYCnTtEynMhhFqVIWKqLAUBWtBRbcLnjXIMKmQgDJHgnaA" alt="Art">
+                </div>
+                
+            </div>
+    
+            <div class="navegation">
+                <label class="bar" for="slide1"></label>
+                <label class="bar" for="slide2"></label>
+                <label class="bar" for="slide3"></label>
+            </div>
+        </div>
+
+        <div id=dif> 
+            <p>Descrição: Imagens aleatória retiradas do google</p>
+            <p id="cp">Curtido por </p>
+            <p id="counter-label">300</p>
+            <p id= cp> pessoas</p>
+            <input id="curtir" type="button" value="Curtir" onclick="incrementClick();">
+            
+            <div id="comentarios">
+                <p>Usuário3: WOW</p>
+                <p>Usuário5: Faz mais!!!</p> 
+            </div>
+            
+            <label>Comentário:</label>
+            <input type="text" id="coment" ><br\>
+            <input id="envio" type="button" value="Enviar" onclick="addComentario();">
+            
+        </div>
+    </div>
+    
+
+    <div>
+        <p id="user">Arte Kou</p>   
+        <div class="content">
+            <div class="carousel">
+                <input type="radio" name="radio" id="slide4" checked>
+                <input type="radio" name="radio" id="slide5">
+                <input type="radio" name="radio" id="slide6">
+
+                <div class="slide s1">
+                    <img src="https://pbs.twimg.com/media/EiL8xnvVgAEcfRO.jpg" alt="Kou">
+                </div>
+                <div class="slide">
+                    <img src="https://pbs.twimg.com/media/Ef9eUEzUMAclDXA.jpg:large" alt="Kou2">
+                </div>
+                <div class="slide">
+                    <img src="https://e.rpp-noticias.io/normal/2020/10/09/133613_1007593.jpg" alt="Mangá">
+                </div>
+            </div>
+
+            <div class="navegation">
+                <label class="bar" for="slide4"></label>
+                <label class="bar" for="slide5"></label>
+                <label class="bar" for="slide6"></label>
+            </div>
+        </div>
+
+        <div id=dif> 
+            <p>Descrição: Imagens retiradas do usuário Kou pelo twitter</p>
+            <p id="cp">Curtido por </p>
+            <p id="counter-label2">556</p>
+            <p id= cp> pessoas</p>
+            <input id="curtir2" type="button" value="Curtir" onclick="incrementClick2();">
+        
+            <div id="comentarioss">
+                <p>Usuário10: Nice</p>
+                <p>Usuário80: Uau!!!</p>
+                <p>Usuário20: KKKKKKKKK</p>
+            </div>
+            
+            <label>Comentário:</label>
+            <input type="text" id="comenta"><br\>
+            <input id="envio" type="button" value="Enviar" onclick="addComentario2();">
+        
+        </div>
+    </div>
+
+    <div>
+        <p id="user">Scenery</p>   
+        <div class="content">
+            <div class="carousel">
+                <input type="radio" name="radio" id="slide7" checked>
+                <input type="radio" name="radio" id="slide8">
+                <input type="radio" name="radio" id="slide9">
+
+                <div class="slide s1">
+                    <img src="https://www.r2pg.com.br/wp-content/uploads/2016/07/1463086970643.jpg" alt="Cenario1">
+                </div>
+                <div class="slide">
+                    <img src="https://wallpaperaccess.com/full/2249567.jpg" alt="Cenario2">
+                </div>
+                <div class="slide">
+                    <img src="https://images3.alphacoders.com/599/599318.jpg" alt="Cenario3">
+                </div>
+            </div>
+
+            <div class="navegation">
+                <label class="bar" for="slide7"></label>
+                <label class="bar" for="slide8"></label>
+                <label class="bar" for="slide9"></label>
+            </div>
+        </div>
+
+        <div id=dif> 
+            <p>Descrição: Imagens aleatória retiradas do google por busca por cenários</p>
+            <p id="cp">Curtido por </p>
+            <p id="counter-label3">999</p>
+            <p id= cp> pessoas</p>
+            <input id="curtir3" type="button" value="Curtir" onclick="incrementClick3();">
+        
+            <div id="comentarioz">
+                <p>Usuário150: Holy shit</p>
+                <p>Usuário880: KRLLL!!!</p>
+                <p>Usuário700: Ok, this is epic</p>
+            </div>
+            
+            <label>Comentário:</label>
+            <input type="text" id="comen"><br\>
+            <input id="envio" type="button" value="Enviar" onclick="addComentario3();">
+        
+        </div>
+    </div>
+    
+</body>
+</html>
